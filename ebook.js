@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const fs = require('fs');
+const path = require('path');
 
 const ERROR_TAG = '[\033[91mError\033[0m]: ';
 const DEBUG = false;
@@ -147,7 +148,7 @@ function Sequence(ops, params, cb)
 }
 
 // Load the spec. Start processing.
-const spec = JSON.parse(fs.readFileSync(__dirname + '/' + process.argv[2]));
+const spec = JSON.parse(fs.readFileSync(path.join(__dirname ,"specs", process.argv[2])));
 const sched = {};
 const uri_cache = new UriCache();
 
